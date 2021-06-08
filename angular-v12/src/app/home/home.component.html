@@ -1,4 +1,21 @@
 <div class="test">
   <h2>Đây là trang home!</h2>
-  <p>Chào mọi người</p>
+  <p>Chào bạn {{name}}</p>
+  <br>
+  <input type="text" [value]="name" [title]="'Day la: ' + name" [(ngModel)]="name" />
+  <br>
+  <input type="number" [value]="age" [(ngModel)]="age" />
+  <!-- <h2 *ngIf="age > 0 && age > 30">Ban qua gia roi</h2>
+  <h2 *ngIf="age > 0 && age <=30">Ban con tre lam</h2> -->
+
+  <div *ngIf="age > 0 && age > 30; then gia; else tre"></div>
+  <ng-template #tre>
+    <h2>Bạn còn trẻ lắm</h2>
+  </ng-template>
+
+  <ng-template #gia>
+    <h2>Bạn đã già rồi</h2>
+  </ng-template>
+
+  <button (click)="resetForm()">Reset</button>
 </div>
