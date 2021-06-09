@@ -18,4 +18,50 @@
   </ng-template>
 
   <button (click)="resetForm()">Reset</button>
+
+  <h2>Trái cây</h2>
+  <ul *ngFor="let fruit of fruits; let i = index">
+    <li>{{ i+1 }} {{fruit}} </li>
+  </ul>
+
+  <br>
+
+  <table class="table">
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Discount</th>
+    </tr>
+    <tr *ngFor="let item of fruitsObj; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{item.name}}</td>
+      <td>
+        <span [ngClass]='{"discounted":item.discount}'>{{item.price}}</span>
+      </td>
+      <td>
+        <span *ngIf="item.discount">Đại hạ giá</span>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table class="table">
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Discount</th>
+    </tr>
+    <tr *ngFor="let item of fruitsObj; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{item.name}}</td>
+      <td>
+        <span [ngClass]='{"discounted":item.discount}'>{{item.price}}</span>
+      </td>
+      <td>
+        <span>{{item.discount | onSale | uppercase}}</span>
+      </td>
+    </tr>
+  </table>
 </div>

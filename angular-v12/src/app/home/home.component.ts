@@ -8,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   public name: string = 'Minh Duy';
   public age: number = 28;
+  public fruits: string[] = ['Cam', 'Xoai', 'Man', 'Buoi'];
+
+  public fruitsObj = [
+    { name: 'Tao', price: 12000, discount: true },
+    { name: 'Nho', price: 23000, discount: false },
+    { name: 'Man', price: 18000, discount: false },
+  ];
   constructor() {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    console.log('trai cay: ', this.fruits);
+  }
 
   public resetForm(): void {
     this.name = '';
