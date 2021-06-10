@@ -64,4 +64,18 @@
       </td>
     </tr>
   </table>
+
+  <br>
+  <label>Tỉnh / Thành phố: </label>
+  <select (change)="changeProvince($event)">
+    <option *ngFor="let data of dataVietnam;" value="{{data.province}}">
+      {{data.province}}
+    </option>
+  </select>
+  <br>
+  <label>Quận / huyện: </label>
+  <select>
+    <option *ngFor="let district of districts;" value="">{{district}}</option>
+  </select>
+
 </div>
