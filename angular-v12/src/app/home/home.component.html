@@ -60,7 +60,7 @@
         <span [ngClass]='{"discounted":item.discount}'>{{item.price}}</span>
       </td>
       <td>
-        <span>{{item.discount | onSale | uppercase}}</span>
+        <span>{{item.discount|onSale|uppercase}}</span>
       </td>
     </tr>
   </table>
@@ -78,4 +78,6 @@
     <option *ngFor="let district of districts;" value="">{{district}}</option>
   </select>
 
+  <p>Counter = {{counter}}</p>
+  <p>{{counter}} ^ 2 = {{counterBinhPhuong}}</p>
 </div>
