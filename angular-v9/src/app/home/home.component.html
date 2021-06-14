@@ -1,0 +1,17 @@
+<h1>Welcome to Angular</h1>
+<h3>Chao ban
+  <span class="overAge">{{name}}</span>
+</h3>
+<h3 class="overAge">Ban da la {{age}}</h3>
+
+<ng-template #condition1>
+  <span class="underAge"> Ban duoi 18 tuoi</span>
+</ng-template>
+<ng-template #condition2>
+  <span class="overAge">Bạn lơn hoặc bằng 18 tuổi, Bạn quá già</span>
+</ng-template>
+
+<div *ngIf="age<18; then condition1; else condition2" class="underAge"></div>
+
+<br />
+<button (click)="tangTuoi()">Tăng tuổi</button>
