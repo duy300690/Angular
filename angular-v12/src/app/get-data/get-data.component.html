@@ -1,0 +1,24 @@
+<div class="border">
+  <table>
+    <tr>
+      <th>STT</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Country</th>
+    </tr>
+    <tr *ngFor="let item of users; let i= index;">
+      <td>{{i+1}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td [ngClass]="{'redColor':item.gender==='female'}">
+        <span> {{item.gender| uppercase}}</span>
+      </td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.country}}</td>
+    </tr>
+  </table>
+</div>
