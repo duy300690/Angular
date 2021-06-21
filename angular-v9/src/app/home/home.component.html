@@ -1,17 +1,38 @@
-<h1>Welcome to Angular</h1>
-<h3>Chao ban
-  <span class="overAge">{{name}}</span>
-</h3>
-<h3 class="overAge">Ban da la {{age}}</h3>
+<h2>List vehicles</h2>
+<ul *ngFor="let vehicle of vehicles">
+  <li>{{vehicle}}</li>
+</ul>
 
-<ng-template #condition1>
-  <span class="underAge"> Ban duoi 18 tuoi</span>
-</ng-template>
-<ng-template #condition2>
-  <span class="overAge">Bạn lơn hoặc bằng 18 tuổi, Bạn quá già</span>
-</ng-template>
-
-<div *ngIf="age<18; then condition1; else condition2" class="underAge"></div>
-
+<div>
+  <select>
+    <option *ngFor="let vehicle of vehicles" value="{{vehicle}}">
+      {{vehicle}}
+    </option>
+  </select>
+</div>
+<hr />
+<h2>Two ways bidding</h2>
+<label>Your name is : {{name}}</label>
 <br />
-<button (click)="tangTuoi()">Tăng tuổi</button>
+<input type="text" [(ngModel)]="name" />
+<hr>
+<h2>Event click</h2>
+<label>Your age is: {{age}}</label>
+<br />
+<button (click)="UpAge()">Up age</button>
+<p *ngIf='age < 18'>Your age is under 18</p>
+<p *ngIf='age >= 18'>Your age is over 18</p>
+<hr>
+<h2>Template</h2>
+
+<ng-template [ngIf]="age <= 18">
+  <span class="young">You are so young!</span>
+</ng-template>
+
+<ng-template [ngIf]="age > 18 && age <= 60">
+  <span class="ok">You are 18 years old or over!</span>
+</ng-template>
+
+<ng-template [ngIf]="age > 60">
+  <span class='old'>You are so old!</span>
+</ng-template>

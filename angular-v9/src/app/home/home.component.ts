@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   constructor() {}
-
+  public vehicles: string[] = ['Toyota', 'Honda', 'Yamaha'];
+  public name: string = '';
+  public age: number = 59;
   ngOnInit(): void {}
 
-  public name: string = 'Minh Duy';
-  public age: number = 15;
-
-  public tangTuoi(): void {
-    this.age++;
+  public UpAge(): void {
+    this.age = this.age + 1;
   }
 }
