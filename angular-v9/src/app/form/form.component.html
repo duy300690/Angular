@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Hero Form</h1>
+  <form (ngSubmit)='submitForm()' #myForm='ngForm'>
+    <div class="form-group">
+      <label for='name'>Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required />
+      <span *ngIf="name===''" class="errorMessage">* Input your name</span>
+    </div>
+    <div class="form-group">
+      <label for='password'>Password</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required />
+      <span *ngIf="password===''" class="errorMessage">* Input your password</span>
+    </div>
+
+    <div class="form-group">
+      <label for='vehicle'>Vehicle</label>
+      <select class="form-control" (change)='selectVehicle($event)'>
+        <option *ngFor='let vehicle of vehicles;' value='{{vehicle}}'>
+          <ng-container *ngIf="vehicle===''">
+            Select Vehicle
+          </ng-container>
+          {{vehicle}}
+        </option>
+
+      </select>
+
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+  </form>
+</div>

@@ -1,1 +1,38 @@
 <p>about works!</p>
+<hr>
+<h2>Event click</h2>
+<label appBold>Your name is: {{name}}</label>
+<br>
+<label appBold>Your age is: {{age}}</label>
+<br />
+<button (click)="UpAge()">Up age</button>
+<hr>
+<h1>Comments</h1>
+<br>
+<span>Comments:</span>
+<ul *ngFor="let comment of comments;">
+  <li>{{comment.body}}</li>
+</ul>
+<hr>
+<div class="container">
+  <h1>Posts</h1>
+  <label>You have <span class="badge badge-danger">{{posts?.length}}</span> posts</label>
+
+  <table class="table table-success table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let row of posts;">
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.title}}</td>
+        <td>{{row.author}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="addPost()">Add post</button>
+</div>

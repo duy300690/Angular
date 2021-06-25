@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../Services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private common: CommonService) {}
   public vehicles: string[] = ['Toyota', 'Honda', 'Yamaha'];
   public name: string = '';
-  public age: number = 59;
+  public age: number = this.common.age;
   ngOnInit(): void {}
 
   public UpAge(): void {
-    this.age = this.age + 1;
+    this.common.age++;
+    this.age = this.common.age;
   }
 }

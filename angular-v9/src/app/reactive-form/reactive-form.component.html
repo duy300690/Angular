@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Hero Reactive Form</h1>
+  <form [formGroup]="profile" (ngSubmit)='onSubmit()'>
+    <div class="form-group">
+      <label>
+        Name:
+        <input type="text" formControlName="name" required />
+      </label>
+      &nbsp;
+      <span class="errorMessage" *ngIf='!profile.controls.name.valid'>* Input name!</span>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Age:
+        <input type="text" formControlName="age" required />
+      </label>
+      &nbsp;
+      <span class="errorMessage" *ngIf='!profile.controls.age.valid'>* Input age!</span>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]='!profile.valid'>Submit</button>
+  </form>
+
+</div>
