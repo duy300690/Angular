@@ -59,4 +59,11 @@ export class ServerHttpService {
       .post<any>(url, data, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
+
+  public getStudents(): Observable<any> {
+    const url = `${this.REST_API_SERVER}/students`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
 }

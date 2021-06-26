@@ -19,27 +19,25 @@ export class AboutComponent implements OnInit {
   public posts: any[] = [];
 
   ngOnInit(): void {
-    this.serverHttp.getProfile().subscribe((data) => {
-      this.name = data.name;
-      this.age = data.age;
-    });
-
-    this.serverHttp.getComments().subscribe((data) => {
-      this.comments = data;
-    });
-
-    this.serverHttp.getPosts().subscribe((data) => {
-      this.posts = data;
-    });
+    // this.serverHttp.getProfile().subscribe((data) => {
+    //   this.name = data.name;
+    //   this.age = data.age;
+    // });
+    // this.serverHttp.getComments().subscribe((data) => {
+    //   this.comments = data;
+    // });
+    // this.serverHttp.getPosts().subscribe((data) => {
+    //   this.posts = data;
+    // });
   }
 
-  public addPost(): void {
-    const newData = { title: 'title 1', author: 'typicode 1' };
-    this.serverHttp.addPost(newData).subscribe((data) => {
-      this.posts.push(data);
-    });
-  }
-  public UpAge(): void {
-    this.age++;
-  }
+  // public addPost(): void {
+  //   const newData = { title: 'title 1', author: 'typicode 1' };
+  //   this.serverHttp.addPost(newData).subscribe((data) => {
+  //     this.posts.push(data);
+  //   });
+  // }
+  // public UpAge(): void {
+  //   this.age++;
+  // }
 }

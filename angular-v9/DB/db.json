@@ -62,5 +62,17 @@
     "name": "Duy Can",
     "age": 30,
     "gender": "Female"
-  }
+  },
+
+  "students":[{
+    "id": 1,
+    "code": "MSV-01",
+    "gender": true,
+    "firstName": "Minh Duy",
+    "lastName": "Vo",
+    "dob":"1990/06/30",
+    "email":"duycan@gmail.com",
+    "phone": "08-345-10999",
+    "picture":""
+  }]
 }

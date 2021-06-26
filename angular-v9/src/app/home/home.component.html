@@ -1,38 +1,4 @@
-<h2>List vehicles</h2>
-<ul *ngFor="let vehicle of vehicles">
-  <li>{{vehicle}}</li>
-</ul>
-
-<div>
-  <select>
-    <option *ngFor="let vehicle of vehicles" value="{{vehicle}}">
-      {{vehicle}}
-    </option>
-  </select>
-</div>
-<hr />
-<h2>Two ways bidding</h2>
-<label>Your name is : {{name | uppercase}}</label>
-<br />
-<input type="text" [(ngModel)]="name" />
-<hr>
-<h2>Event click</h2>
-<label>Your age is: {{age}}</label>
-<br />
-<button (click)="UpAge()">Up age</button>
-<p *ngIf='age < 18'>Your age is under 18</p>
-<p *ngIf='age >= 18'>Your age is over 18</p>
-<hr>
-<h2>Template</h2>
-
-<ng-template [ngIf]="age <= 18">
-  <span class="young">You are so young!</span>
-</ng-template>
-
-<ng-template [ngIf]="age > 18 && age <= 60">
-  <span class="ok">You are 18 years old or over!</span>
-</ng-template>
-
-<ng-template [ngIf]="age > 60">
-  <span class='old'>You are so old!</span>
-</ng-template>
+<h2 style="text-align:center;">Chào mừng đến với Angular</h2>
+<p>
+  Đồ thị
+</p>

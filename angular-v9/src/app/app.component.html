@@ -1,9 +1,44 @@
-<a [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
-&nbsp;|
-<a [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
-&nbsp;
-<a [routerLink]="['/form']" routerLinkActive="router-link-active">Form</a>
-&nbsp;
-<a [routerLink]="['/reactiveForm']" routerLinkActive="router-link-active">Reactive Form</a>
+<mat-toolbar color='primary' class='nav-height'>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="openLeftSide()">menu</mat-icon>
+    </button>
+    <h1>Quả lý sinh viên</h1>
+    <span class="menu-spacer" style="width: 100px;"></span>
+    <div>
+      <a mat-button [routerLink]="['/home']" [routerLinkActive]="'active-link'">
+        <mat-icon mat-list-icon>home</mat-icon> Trang chủ
+      </a>
+      <a mat-button [routerLink]="['/students']" [routerLinkActive]="'active-link'">
+        <mat-icon>group</mat-icon> Sinh viên
+      </a>
+      <a mat-button [routerLink]="['/about']" [routerLinkActive]="'active-link'">
+        <mat-icon>contact_support</mat-icon> Giới thiệu
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav (closed)="closeLeftSide()">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/home']">
+        <mat-icon mat-list-icon>home</mat-icon> Trang chủ
+      </a>
+      <a mat-list-item [routerLink]="['/students']">
+        <mat-icon>group</mat-icon> Sinh viên
+      </a>
+      <a mat-list-item [routerLink]="['/about']">
+        <mat-icon>contact_support</mat-icon> Giới thiệu
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <div style="height:90vh; margin: 20px 10px 0 10px;" [ngClass]="{
+      'content-move-left':!isOpened,
+      'content-move-right':isOpened
+    }">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
