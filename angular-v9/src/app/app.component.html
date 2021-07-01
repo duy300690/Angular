@@ -1,18 +1,34 @@
-<mat-toolbar color='primary' class='nav-height'>
+<mat-toolbar color="primary" class="nav-height">
   <mat-toolbar-row>
     <button mat-icon-button>
       <mat-icon (click)="openLeftSide()">menu</mat-icon>
     </button>
     <h1>Quả lý sinh viên</h1>
-    <span class="menu-spacer" style="width: 100px;"></span>
+    <span class="menu-spacer" style="width: 100px"></span>
     <div>
       <a mat-button [routerLink]="['/home']" [routerLinkActive]="'active-link'">
         <mat-icon mat-list-icon>home</mat-icon> Trang chủ
       </a>
-      <a mat-button [routerLink]="['/students']" [routerLinkActive]="'active-link'">
-        <mat-icon>group</mat-icon> Sinh viên
+      <a
+        mat-button
+        [routerLink]="['/students']"
+        [routerLinkActive]="'active-link'"
+      >
+        <mat-icon>group</mat-icon>
+        Sinh viên &nbsp;
+        <span
+          *ngIf="totalStudents > 0"
+          matBadge="{{ totalStudents }}"
+          matBadgeColor="warn"
+          matBadgeSize="small"
+        >
+        </span>
       </a>
-      <a mat-button [routerLink]="['/about']" [routerLinkActive]="'active-link'">
+      <a
+        mat-button
+        [routerLink]="['/about']"
+        [routerLinkActive]="'active-link'"
+      >
         <mat-icon>contact_support</mat-icon> Giới thiệu
       </a>
     </div>
@@ -34,10 +50,13 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div style="height:90vh; margin: 20px 10px 0 10px;" [ngClass]="{
-      'content-move-left':!isOpened,
-      'content-move-right':isOpened
-    }">
+    <div
+      style="height: 90vh; margin: 20px 10px 0 10px"
+      [ngClass]="{
+        'content-move-left': !isOpened,
+        'content-move-right': isOpened
+      }"
+    >
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

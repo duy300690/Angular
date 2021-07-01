@@ -20,6 +20,7 @@ export class ServerHttpService {
   };
 
   private REST_API_SERVER = 'http://localhost:3000';
+
   constructor(private httpClient: HttpClient) {}
 
   private handleError(err: HttpErrorResponse) {

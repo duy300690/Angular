@@ -2,6 +2,7 @@ import { Router, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ServerHttpService } from '../Services/server-http.service';
+import { CommonService } from '../Services/common.service';
 
 @Component({
   selector: 'app-student-form',
@@ -20,7 +21,11 @@ export class StudentFormComponent implements OnInit {
     picture: new FormControl(''),
   });
 
-  constructor(private serverHttp: ServerHttpService, private router: Router) {}
+  constructor(
+    private serverHttp: ServerHttpService,
+    private router: Router,
+    private common: CommonService
+  ) {}
 
   ngOnInit(): void {}
 

@@ -20,6 +20,7 @@ export class StudentsComponent implements OnInit {
   ngOnInit(): void {
     this.serverHttp.getStudents().subscribe((data) => {
       this.students = data;
+      this.common.setTotalStudent(data.length);
     });
   }
 
