@@ -1,3 +1,4 @@
+import { Router, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../models/Student';
 import { CommonService } from '../Services/common.service';
@@ -11,7 +12,8 @@ import { ServerHttpService } from '../Services/server-http.service';
 export class StudentsComponent implements OnInit {
   constructor(
     private common: CommonService,
-    private serverHttp: ServerHttpService
+    private serverHttp: ServerHttpService,
+    private router: Router
   ) {}
 
   public students: Student[] = [];
@@ -19,5 +21,9 @@ export class StudentsComponent implements OnInit {
     this.serverHttp.getStudents().subscribe((data) => {
       this.students = data;
     });
+  }
+
+  public addStudent(): void {
+    this.router.navigate(['student-form']);
   }
 }

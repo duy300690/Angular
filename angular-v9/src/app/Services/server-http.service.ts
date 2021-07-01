@@ -1,3 +1,4 @@
+import { Student } from './../models/Student';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -64,6 +65,13 @@ export class ServerHttpService {
     const url = `${this.REST_API_SERVER}/students`;
     return this.httpClient
       .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public addStudent(data: Student): Observable<Student> {
+    const url = `${this.REST_API_SERVER}/students`;
+    return this.httpClient
+      .post<Student>(url, data, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 }

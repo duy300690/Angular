@@ -1,3 +1,4 @@
+import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 import { AboutComponent } from './about/about.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ const routes: Routes = [
   // { path: 'form', component: FormComponent },
   // { path: 'reactiveForm', component: ReactiveFormComponent },
   { path: 'students', component: StudentsComponent },
+  { path: 'student-form', component: StudentFormComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

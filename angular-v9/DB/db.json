@@ -63,16 +63,39 @@
     "age": 30,
     "gender": "Female"
   },
-
-  "students":[{
-    "id": 1,
-    "code": "MSV-01",
-    "gender": true,
-    "firstName": "Minh Duy",
-    "lastName": "Vo",
-    "dob":"1990/06/30",
-    "email":"duycan@gmail.com",
-    "phone": "08-345-10999",
-    "picture":""
-  }]
+  "students": [
+    {
+      "id": 1,
+      "code": "MSV-01",
+      "gender": true,
+      "firstName": "Minh Duy",
+      "lastName": "Vo",
+      "dob": "1990/06/30",
+      "email": "duycan@gmail.com",
+      "phone": "08-345-10999",
+      "picture": ""
+    },
+    {
+      "code": "N01",
+      "gender": "false",
+      "firstName": "Minh",
+      "lastName": "Vo",
+      "dob": "2021-06-16T17:00:00.000Z",
+      "email": "duy300690@gmail.com",
+      "phone": "0834510999",
+      "picture": "",
+      "id": 2
+    },
+    {
+      "code": "N01",
+      "gender": "false",
+      "firstName": "Minh",
+      "lastName": "Vo",
+      "dob": "2021-06-09T17:00:00.000Z",
+      "email": "duy300690@gmail.com",
+      "phone": "0834510999",
+      "picture": "",
+      "id": 3
+    }
+  ]
 }
