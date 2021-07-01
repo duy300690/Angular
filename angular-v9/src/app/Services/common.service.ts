@@ -12,4 +12,9 @@ export class CommonService {
     this.totalStudents = total;
     this.totalStudent$.next(total);
   }
+
+  public incrimentStudent(): void {
+    this.totalStudents++;
+    this.totalStudent$.next(this.totalStudents);
+  }
 }

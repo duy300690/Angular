@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ServerHttpService } from '../Services/server-http.service';
 import { CommonService } from '../Services/common.service';
+import { Student } from '../models/Student';
 
 @Component({
   selector: 'app-student-form',
@@ -37,6 +38,28 @@ export class StudentFormComponent implements OnInit {
     }
     this.serverHttp.addStudent(newStudent).subscribe((data) => {
       this.router.navigate(['students']);
+    });
+  }
+
+  private data(): Student {
+    let newStudent: any = {};
+    for (const controlName in this.studentForm.controls) {
+      if (controlName)
+        newStudent[controlName] = this.studentForm.controls[controlName].value;
+    }
+    return newStudent;
+  }
+
+  public addAndGoToList(): void {
+    this.serverHttp.addStudent(this.data()).subscribe((data) => {
+      this.router.navigate(['students']);
+    });
+  }
+
+  public addAndClear(): void {
+    this.serverHttp.addStudent(this.data()).subscribe((data) => {
+      this.studentForm.reset();
+      this.common.incrimentStudent();
     });
   }
 }
