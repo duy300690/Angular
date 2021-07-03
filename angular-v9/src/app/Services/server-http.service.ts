@@ -34,36 +34,15 @@ export class ServerHttpService {
     return throwError('Something bad happened; please try again later');
   }
 
-  public getProfile(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/profile`;
-    return this.httpClient
-      .get<any>(url, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public getComments(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/comments`;
-    return this.httpClient
-      .get<any>(url, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public getPosts(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/posts`;
-    return this.httpClient
-      .get<any>(url, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public addPost(data: any): Observable<any> {
-    const url = `${this.REST_API_SERVER}/posts`;
-    return this.httpClient
-      .post<any>(url, data, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
   public getStudents(): Observable<any> {
     const url = `${this.REST_API_SERVER}/students`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public getStudentById(studentId: number): Observable<any> {
+    const url = `${this.REST_API_SERVER}/students/${studentId}`;
     return this.httpClient
       .get<any>(url, this.httpOptions)
       .pipe(catchError(this.handleError));
@@ -73,6 +52,27 @@ export class ServerHttpService {
     const url = `${this.REST_API_SERVER}/students`;
     return this.httpClient
       .post<Student>(url, data, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public deleteStudent(data: Student): Observable<Student> {
+    const url = `${this.REST_API_SERVER}/students/${data.id}`;
+    return this.httpClient
+      .delete<Student>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public modifyStudent(studentId: number, data: Student): Observable<Student> {
+    const url = `${this.REST_API_SERVER}/students/${studentId}`;
+    return this.httpClient
+      .put<Student>(url, data, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public getRandomStudent(): Observable<any> {
+    const url = `https://randomuser.me/api?results=1`;
+    return this.httpClient
+      .get<any>(url, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 }

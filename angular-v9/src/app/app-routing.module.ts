@@ -15,7 +15,7 @@ const routes: Routes = [
   // { path: 'form', component: FormComponent },
   // { path: 'reactiveForm', component: ReactiveFormComponent },
   { path: 'students', component: StudentsComponent },
-  { path: 'student-form', component: StudentFormComponent },
+  { path: 'student-form/:id', component: StudentFormComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

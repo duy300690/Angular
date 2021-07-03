@@ -65,70 +65,81 @@
   },
   "students": [
     {
-      "id": 1,
-      "code": "MSV-01",
-      "gender": true,
-      "firstName": "Minh Duy",
-      "lastName": "Vo",
-      "dob": "1990/06/30",
-      "email": "duycan@gmail.com",
-      "phone": "08-345-10999",
-      "picture": ""
-    },
-    {
-      "code": "N01",
+      "code": "CPR-240482-5801",
       "gender": "false",
-      "firstName": "Minh",
-      "lastName": "Vo",
-      "dob": "2021-06-16T17:00:00.000Z",
-      "email": "duy300690@gmail.com",
-      "phone": "0834510999",
-      "picture": "",
-      "id": 2
-    },
-    {
-      "code": "N01",
-      "gender": "false",
-      "firstName": "Minh",
-      "lastName": "Vo",
-      "dob": "2021-06-09T17:00:00.000Z",
-      "email": "duy300690@gmail.com",
-      "phone": "0834510999",
-      "picture": "",
-      "id": 3
-    },
-    {
-      "code": "N01",
-      "gender": "",
-      "firstName": "Minh",
-      "lastName": "Vo",
-      "dob": "",
-      "email": "duy300690@gmail.com",
-      "phone": "0834510999",
-      "picture": "",
-      "id": 4
-    },
-    {
-      "code": "N01",
-      "gender": "",
-      "firstName": "Minh",
-      "lastName": "Vo",
-      "dob": "",
-      "email": "duy300690@gmail.com",
-      "phone": "0834510999",
-      "picture": "",
-      "id": 5
-    },
-    {
-      "code": "N01",
-      "gender": "",
-      "firstName": "Minh",
-      "lastName": "Vo",
-      "dob": "",
-      "email": "duy300690@gmail.com",
-      "phone": "0834510999",
-      "picture": "",
+      "firstName": "Thea",
+      "lastName": "Nielsen",
+      "dob": "1982-04-24T19:23:07.953Z",
+      "email": "thea.nielsen@example.com",
+      "phone": "07016413",
+      "picture": "https://randomuser.me/api/portraits/women/5.jpg",
       "id": 6
+    },
+    {
+      "code": "NINO-AB 47 44 97 S",
+      "gender": "true",
+      "firstName": "Lucas Or Luke",
+      "lastName": "Perry",
+      "dob": "1976-06-13T16:24:47.222Z",
+      "email": "lucasorluke.perry@example.com",
+      "phone": "015395 77706",
+      "picture": "https://randomuser.me/api/portraits/men/63.jpg",
+      "id": 7
+    },
+    {
+      "code": "INSEE-2NNaN81789623 95",
+      "gender": "false",
+      "firstName": "Hanaé",
+      "lastName": "Brunet",
+      "dob": "1981-08-26T05:05:07.457Z",
+      "email": "hanae.brunet@example.com",
+      "phone": "01-34-92-99-92",
+      "picture": "https://randomuser.me/api/portraits/women/7.jpg",
+      "id": 9
+    },
+    {
+      "code": "BSN-89419087",
+      "gender": "true",
+      "firstName": "Didier",
+      "lastName": "Beij",
+      "dob": "1962-03-15T05:53:21.948Z",
+      "email": "didier.beij@example.com",
+      "phone": "(079)-720-6971",
+      "picture": "https://randomuser.me/api/portraits/men/55.jpg",
+      "id": 10
+    },
+    {
+      "code": "BSN-53037634",
+      "gender": "true",
+      "firstName": "Mattijs",
+      "lastName": "Sahin",
+      "dob": "1968-07-11T18:22:46.082Z",
+      "email": "mattijs.sahin@example.com",
+      "phone": "(194)-778-9132",
+      "picture": "https://randomuser.me/api/portraits/men/54.jpg",
+      "id": 11
+    },
+    {
+      "code": "NINO-XC 59 93 85 K",
+      "gender": "false",
+      "firstName": "Mary",
+      "lastName": "Hopkins",
+      "dob": "1946-06-13T05:48:45.601Z",
+      "email": "mary.hopkins@example.com",
+      "phone": "016977 7778",
+      "picture": "https://randomuser.me/api/portraits/women/94.jpg",
+      "id": 12
+    },
+    {
+      "code": "INSEE-2NNaN44232144 31",
+      "gender": "false",
+      "firstName": "Nora",
+      "lastName": "Roche",
+      "dob": "1981-12-05T09:56:25.630Z",
+      "email": "nora.roche@example.com",
+      "phone": "01-23-41-51-69",
+      "picture": "https://randomuser.me/api/portraits/women/59.jpg",
+      "id": 13
     }
   ]
 }

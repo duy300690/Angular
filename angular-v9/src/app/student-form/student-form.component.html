@@ -60,8 +60,8 @@
       type="submit"
       [disabled]="!studentForm.valid"
       mat-raised-button
-      color="accent"
-      (click)="addAndGoToList()"
+      color="primary"
+      (click)="saveAndGoToList()"
     >
       <mat-icon>save</mat-icon> Save and go to list
     </button>
@@ -70,10 +70,20 @@
       type="submit"
       [disabled]="!studentForm.valid"
       mat-raised-button
-      color="accent"
-      (click)="addAndClear()"
+      color="primary"
+      (click)="saveAndClear()"
     >
-      <mat-icon>save</mat-icon> Save and add new
+      <mat-icon>save</mat-icon> Save
+      <span *ngIf="studentId === 0"> and add new</span>
+    </button>
+    &nbsp;
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="randomStudent()"
+      *ngIf="studentId === 0"
+    >
+      <mat-icon>save</mat-icon> Random student
     </button>
   </p>
 </div>

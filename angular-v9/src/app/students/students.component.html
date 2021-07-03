@@ -1,18 +1,29 @@
 <p>
   <button mat-raised-button color="primary" (click)="addStudent()">
-    <mat-icon>add</mat-icon> Primary
+    <mat-icon>add</mat-icon> Add student
   </button>
 </p>
 <table id="customers">
   <thead>
     <tr>
       <th>No.</th>
-      <th>Mã sinh viên</th>
+      <th>
+        Mã sinh viên &nbsp;
+        <span style="cursor: pointer" (click)="sort('code', 'up')">
+          <mat-icon>keyboard_arrow_up</mat-icon>
+        </span>
+
+        <span style="cursor: pointer" (click)="sort('code', 'down')">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </span>
+      </th>
       <th>Họ tên đệm</th>
       <th>Tên</th>
       <th>Giới tính</th>
       <th>Điện thoại</th>
       <th>Email</th>
+      <th>Picture</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody *ngFor="let student of students; let i = index">
@@ -24,6 +35,24 @@
       <td>{{ student.gender ? "Nam" : "Nữ" }}</td>
       <td>{{ student.phone }}</td>
       <td>{{ student.email }}</td>
+      <td style="text-align: center">
+        <img
+          *ngIf="student?.picture"
+          mat-card-image
+          src="{{ student.picture }}"
+          alt="Photo of a Shiba Inu"
+          height="100px"
+        />
+      </td>
+      <td>
+        <button mat-raised-button color="accent" (click)="editStudent(student)">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        &nbsp;
+        <button mat-raised-button color="warn" (click)="deleteStudent(student)">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
