@@ -1,0 +1,164 @@
+<h1 style="text-align: center">
+  Chương trình thông báo về Corona virus - Covid 19
+</h1>
+<div>
+  <table id="customers" style="border-collapse: collapse">
+    <thead>
+      <tr>
+        <th>Hôm nay</th>
+        <th>Số ca nhiễm mới</th>
+        <th>Số ca tử vong</th>
+        <th>Số ca hồi phục</th>
+        <th>Tổng số ca nhiễm</th>
+        <th>Tổng số ca tử vong</th>
+        <th>Tổng số ca hồi phục</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ globalData.date | date }}</td>
+        <td style="text-align: right">
+          {{ globalData.newConfirmed | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ globalData.newDeaths | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ globalData.newRecovered | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ globalData.totalConfirmed | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ globalData.totalDeaths | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ globalData.totalRecovered | number: "0.0" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table id="customers" style="border-collapse: collapse">
+    <thead>
+      <tr>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('country')"
+        >
+          <span> Quốc gia </span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'country'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'country'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('newConfirmed')"
+        >
+          <span> Số ca mắc mới</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'newConfirmed'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'newConfirmed'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('newDeaths')"
+        >
+          <span> Số ca tử vong</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'newDeaths'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'newDeaths'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('newRecovered')"
+        >
+          <span> Số ca hồi phục</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'newRecovered'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'newRecovered'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('totalConfirmed')"
+        >
+          <span>Tổng số ca mắc</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'totalConfirmed'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'totalConfirmed'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('totalDeaths')"
+        >
+          <span>Tổng số ca tử vong</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'totalDeaths'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'totalDeaths'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+        <th
+          style="text-align: center; cursor: pointer"
+          (click)="orderBy('totalRecovered')"
+        >
+          <span>Tổng số ca hồi phục</span>
+          &nbsp;
+          <mat-icon *ngIf="isSortUp && keySort === 'totalRecovered'"
+            >arrow_downward</mat-icon
+          >
+          <mat-icon *ngIf="!isSortUp && keySort === 'totalRecovered'"
+            >arrow_upward</mat-icon
+          >
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of countriesData">
+        <td>{{ item.country }}</td>
+        <td style="text-align: right">
+          {{ item.newConfirmed | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ item.newDeaths | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ item.newRecovered | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ item.totalConfirmed | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ item.totalDeaths | number: "0.0" }}
+        </td>
+        <td style="text-align: right">
+          {{ item.totalRecovered | number: "0.0" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
