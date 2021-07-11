@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ globalData.date | date }}</td>
+        <td>{{ globalData.date | date:'dd/MM/yyyy HH:mm:ss' }}</td>
         <td style="text-align: right">
           {{ globalData.newConfirmed | number: "0.0" }}
         </td>
@@ -46,92 +46,92 @@
       <tr>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('country')"
+          (click)="orderBy('Country')"
         >
           <span> Quốc gia </span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'country'"
+          <mat-icon *ngIf="isSortUp && keySort === 'Country'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'country'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'Country'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('newConfirmed')"
+          (click)="orderBy('NewConfirmed')"
         >
           <span> Số ca mắc mới</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'newConfirmed'"
+          <mat-icon *ngIf="isSortUp && keySort === 'NewConfirmed'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'newConfirmed'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'NewConfirmed'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('newDeaths')"
+          (click)="orderBy('NewDeaths')"
         >
           <span> Số ca tử vong</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'newDeaths'"
+          <mat-icon *ngIf="isSortUp && keySort === 'NewDeaths'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'newDeaths'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'NewDeaths'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('newRecovered')"
+          (click)="orderBy('NewRecovered')"
         >
           <span> Số ca hồi phục</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'newRecovered'"
+          <mat-icon *ngIf="isSortUp && keySort === 'NewRecovered'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'newRecovered'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'NewRecovered'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('totalConfirmed')"
+          (click)="orderBy('TotalConfirmed')"
         >
           <span>Tổng số ca mắc</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'totalConfirmed'"
+          <mat-icon *ngIf="isSortUp && keySort === 'TotalConfirmed'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'totalConfirmed'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'TotalConfirmed'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('totalDeaths')"
+          (click)="orderBy('TotalDeaths')"
         >
           <span>Tổng số ca tử vong</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'totalDeaths'"
+          <mat-icon *ngIf="isSortUp && keySort === 'TotalDeaths'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'totalDeaths'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'TotalDeaths'"
             >arrow_upward</mat-icon
           >
         </th>
         <th
           style="text-align: center; cursor: pointer"
-          (click)="orderBy('totalRecovered')"
+          (click)="orderBy('TotalRecovered')"
         >
           <span>Tổng số ca hồi phục</span>
           &nbsp;
-          <mat-icon *ngIf="isSortUp && keySort === 'totalRecovered'"
+          <mat-icon *ngIf="isSortUp && keySort === 'TotalRecovered'"
             >arrow_downward</mat-icon
           >
-          <mat-icon *ngIf="!isSortUp && keySort === 'totalRecovered'"
+          <mat-icon *ngIf="!isSortUp && keySort === 'TotalRecovered'"
             >arrow_upward</mat-icon
           >
         </th>
@@ -139,24 +139,24 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of countriesData">
-        <td>{{ item.country }}</td>
+        <td>{{ item.Country }}</td>
         <td style="text-align: right">
-          {{ item.newConfirmed | number: "0.0" }}
+          {{ item.NewConfirmed | number: "0.0" }}
         </td>
         <td style="text-align: right">
-          {{ item.newDeaths | number: "0.0" }}
+          {{ item.NewDeaths | number: "0.0" }}
         </td>
         <td style="text-align: right">
-          {{ item.newRecovered | number: "0.0" }}
+          {{ item.NewRecovered | number: "0.0" }}
         </td>
         <td style="text-align: right">
-          {{ item.totalConfirmed | number: "0.0" }}
+          {{ item.TotalConfirmed | number: "0.0" }}
         </td>
         <td style="text-align: right">
-          {{ item.totalDeaths | number: "0.0" }}
+          {{ item.TotalDeaths | number: "0.0" }}
         </td>
         <td style="text-align: right">
-          {{ item.totalRecovered | number: "0.0" }}
+          {{ item.TotalRecovered | number: "0.0" }}
         </td>
       </tr>
     </tbody>

@@ -4,6 +4,10 @@ import { ServerHttpService } from './Services/server-http.service';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label as ng2Chart } from 'ng2-charts';
+import { CommonService } from './Services/common.service';
+
 @Component({
   selector: 'covid19-root',
   templateUrl: './app.component.html',
@@ -21,37 +25,28 @@ export class AppComponent {
     totalDeaths: 0,
     totalRecovered: 0,
   };
-  public countriesData: CovidInfo[] = [];
+  public countriesData: any[] = [];
+
   public isSortUp: boolean = false;
   public keySort: string = '';
 
-  constructor(private serverHttp: ServerHttpService) {}
+  public dataJson: any = null;
+
+  constructor(
+    private serverHttp: ServerHttpService,
+    private common: CommonService
+  ) {}
 
   public ngOnInit(): void {
-    this.serverHttp.getSummary().subscribe((data) => {
-      this.globalData.date = data.Global.Date;
-      this.globalData.newConfirmed = data.Global.NewConfirmed;
-      this.globalData.newDeaths = data.Global.NewDeaths;
-      this.globalData.newRecovered = data.Global.NewRecovered;
-      this.globalData.totalConfirmed = data.Global.TotalConfirmed;
-      this.globalData.totalDeaths = data.Global.TotalDeaths;
-      this.globalData.totalRecovered = data.Global.TotalRecovered;
+    this.common.getListHistory().subscribe((data) => {
+      this.dataJson = _.orderBy(data, 'Date', 'desc')[0];
+      this.getGlobal(this.dataJson.Global);
+      this.getCountryData(this.dataJson.Countries);
+    });
 
-      if (data.Countries && data.Countries.length) {
-        for (let item of data.Countries) {
-          let obj: CovidInfo = {
-            date: new Date(),
-            country: item.Country,
-            newConfirmed: item.NewConfirmed,
-            newDeaths: item.NewDeaths,
-            newRecovered: item.NewRecovered,
-            totalConfirmed: item.TotalConfirmed,
-            totalDeaths: item.TotalDeaths,
-            totalRecovered: item.TotalRecovered,
-          };
-
-          this.countriesData.push(obj);
-        }
+    this.serverHttp.getAPISummary().subscribe((data) => {
+      if (data && this.dataJson && this.dataJson.ID !== data.ID) {
+        this.serverHttp.putToData(data).subscribe();
       }
     });
   }
@@ -65,5 +60,19 @@ export class AppComponent {
     );
 
     this.isSortUp = !this.isSortUp;
+  }
+
+  private getGlobal(serverData: any): void {
+    this.globalData.date = serverData.Date;
+    this.globalData.newConfirmed = serverData.NewConfirmed;
+    this.globalData.newDeaths = serverData.NewDeaths;
+    this.globalData.newRecovered = serverData.NewRecovered;
+    this.globalData.totalConfirmed = serverData.TotalConfirmed;
+    this.globalData.totalDeaths = serverData.TotalDeaths;
+    this.globalData.totalRecovered = serverData.TotalRecovered;
+  }
+
+  private getCountryData(serverData: any): void {
+    this.countriesData = serverData;
   }
 }
